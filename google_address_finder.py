@@ -1,13 +1,12 @@
 import urllib.request, urllib.parse
 import json
 
-# UPDATE THE BELOW API KEY WITH YOUR OWN
-api_key = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+# UPDATE HERE THE API KEY WITH YOUR OWN -
+api_key = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
 
 api = 'https://maps.googleapis.com/maps/api/geocode/json?'
-
 while True:
-    location = input('Enter a Location to get complete address details. e.g.- "tajmahal, india": ')
+    location = input('Enter a Location to get complete address details (e.g.- "tajmahal, india)" or just enter to quit : ')
     if len(location)<1:
         print ('Good Bye')
         break
@@ -22,7 +21,7 @@ while True:
         print ('No json data Found in google.')
 
     if not json_data or 'status' not in json_data or json_data['status'] != 'OK':
-        print ('No Address Found, Please enter valid address.')
+        print ('No Address Found. Please enter valid address or Check if api key is working.')
         continue
 
 #Extracting required field from raw data
